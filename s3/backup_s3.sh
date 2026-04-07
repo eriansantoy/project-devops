@@ -24,3 +24,8 @@ BACKUP_NAME="backup_$(date +%Y%m%d_%H%M%S).tar.gz"
 tar -czf $BACKUP_NAME $DIRECTORY
 
 echo "Backup creado: $BACKUP_NAME"
+
+# Subir a S3
+aws s3 cp $BACKUP_NAME s3://$BUCKET/
+
+echo "Backup subido a S3: s3://$BUCKET/$BACKUP_NAME"
