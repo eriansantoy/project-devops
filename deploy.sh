@@ -11,3 +11,6 @@ if [ -z "$ACTION" ] || [ -z "$INSTANCE_ID" ] || [ -z "$DIRECTORY" ] || [ -z "$BU
     echo "Uso: ./deploy.sh <accion> <instance_id> <directorio> <bucket>"
     exit 1
 fi
+
+echo "Ejecutando acción EC2..."
+python3 ec2/gestionar_ec2.py $ACTION $INSTANCE_ID
