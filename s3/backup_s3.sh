@@ -16,3 +16,11 @@ if [ ! -d "$DIRECTORY" ]; then
 fi
 
 echo "Parámetros válidos"
+
+# Nombre del archivo comprimido
+BACKUP_NAME="backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+
+# Comprimir directorio
+tar -czf $BACKUP_NAME $DIRECTORY
+
+echo "Backup creado: $BACKUP_NAME"
