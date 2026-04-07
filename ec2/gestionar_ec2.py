@@ -18,3 +18,17 @@ def detener(instance_id):
 def terminar(instance_id):
     ec2.terminate_instances(InstanceIds=[instance_id])
     print("Instancia terminada")
+
+if __name__ == "__main__":
+    accion = sys.argv[1]
+
+    if accion == "listar":
+        listar()
+    elif accion == "iniciar":
+        iniciar(sys.argv[2])
+    elif accion == "detener":
+        detener(sys.argv[2])
+    elif accion == "terminar":
+        terminar(sys.argv[2])
+    else:
+        print("Acción no válida")
