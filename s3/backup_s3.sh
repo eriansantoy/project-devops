@@ -29,3 +29,13 @@ echo "Backup creado: $BACKUP_NAME"
 aws s3 cp $BACKUP_NAME s3://$BUCKET/
 
 echo "Backup subido a S3: s3://$BUCKET/$BACKUP_NAME"
+
+# Crear carpeta logs si no existe
+mkdir -p logs
+
+# Archivo de log
+LOG_FILE="logs/backup.log"
+
+# Guardar log
+echo "$(date) - Backup creado: $BACKUP_NAME" >> $LOG_FILE
+echo "$(date) - Backup subido a S3: s3://$BUCKET/$BACKUP_NAME" >> $LOG_FILE
