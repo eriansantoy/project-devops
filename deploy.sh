@@ -17,3 +17,10 @@ python3 ec2/gestionar_ec2.py $ACTION $INSTANCE_ID
 
 echo "Ejecutando backup S3..."
 bash s3/backup_s3.sh $DIRECTORY $BUCKET
+
+mkdir -p logs
+
+LOG_FILE="logs/deploy.log"
+
+echo "$(date) - Acción: $ACTION en instancia $INSTANCE_ID" >> $LOG_FILE
+echo "$(date) - Backup ejecutado en $BUCKET" >> $LOG_FILE
