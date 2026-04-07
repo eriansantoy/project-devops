@@ -14,3 +14,7 @@ def iniciar(instance_id):
 def detener(instance_id):
     ec2.stop_instances(InstanceIds=[instance_id])
     print("Instancia detenida")
+
+def terminar(instance_id):
+    ec2.terminate_instances(InstanceIds=[instance_id])
+    print("Instancia terminada")
