@@ -14,3 +14,6 @@ fi
 
 echo "Ejecutando acción EC2..."
 python3 ec2/gestionar_ec2.py $ACTION $INSTANCE_ID
+
+echo "Ejecutando backup S3..."
+bash s3/backup_s3.sh $DIRECTORY $BUCKET
