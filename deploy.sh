@@ -1,3 +1,13 @@
 #!/bin/bash
 
 echo "Iniciando deploy..."
+
+ACTION=$1
+INSTANCE_ID=$2
+DIRECTORY=$3
+BUCKET=$4
+
+if [ -z "$ACTION" ] || [ -z "$INSTANCE_ID" ] || [ -z "$DIRECTORY" ] || [ -z "$BUCKET" ]; then
+    echo "Uso: ./deploy.sh <accion> <instance_id> <directorio> <bucket>"
+    exit 1
+fi
